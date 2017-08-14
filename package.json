@@ -1,0 +1,26 @@
+{
+  "name": "NYT-React",
+  "version": "1.0.0",
+  "description": "A React-based rendition of the New York Times Article Search application. This App includes React components, work with helper functions, and utilize the React mounting lifecycle to query and display articles based on user searches. Node, Express and MongoDB is used.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cxwang001/NYT-React.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cxwang001/NYT-React/issues"
+  },
+  "homepage": "https://github.com/cxwang001/NYT-React#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.6",
+    "morgan": "^1.8.2"
+  }
+}
