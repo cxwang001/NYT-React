@@ -42,55 +42,9 @@ db.once('open', function () {
 
 // -------------------------------------------------
 
-// Load HTML page (with ReactJS) in public/index.html
-app.get('/', function(req, res){
-  res.sendFile('./public/index.html');
-});
+var router = require('./controllers/controller.js');
+app.use('/', router);
 
-
-// Components use this to query MongoDB for all saved articles
-app.get('/api/saved', function(req, res) {
-  console.log("Hit!");
-
-  Article.find({}).sort([['date', 'descending']]).exec(function(err, doc){
-      if(err){
-        console.log(err);
-      }
-      else {
-        res.send(doc);
-      }
-    })
-});
-
-// Components will use this to save an article to the database
-app.post('/api/saved', function(req, res){
-  var newSaved = new Article(req.body);
- 
-  Article.create({"title": req.body.title, "date": req.body.date, "url": req.body.url}, function(err){
-    if(err){
-      console.log(err);
-    }
-    else {
-      res.send("Saved Article");
-    }
-  })
-});
-
-
-// Components will use this to save an article to the database
-app.delete('/api/saved/:id', function(req, res){
-  Article.find({_id: req.params.id}).remove().exec(function(err){
-    if(err){
-      console.log(err);
-    }
-    else {
-      res.send("Deleted Article");
-    }
-  })
-});
-
-
-// -------------------------------------------------
 
 // Listener
 app.listen(PORT, function() {
