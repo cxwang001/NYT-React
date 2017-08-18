@@ -44,7 +44,7 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _react = __webpack_require__(1);
 
@@ -61,7 +61,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// This code here allows us to render our main component (in this case "Main")
-	_reactDom2.default.render(_react2.default.createElement(_Main2.default, null), document.getElementById("app"));
+	_reactDom2.default.render(_react2.default.createElement(_Main2.default, null), document.getElementById('app'));
 
 	// Include the Main Component
 	// Include the Main React Dependencies
