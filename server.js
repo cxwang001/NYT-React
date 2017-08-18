@@ -39,6 +39,8 @@ db.once('open', function () {
   console.log('Mongoose connection successful.');
 });
 
+//Require Article Schema
+var Article = require('./models/article.js');
 
 // -------------------------------------------------
 
