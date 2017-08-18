@@ -23,8 +23,11 @@ app.use(express.static("./public"));
 // -------------------------------------------------
 
 // MongoDB Configuration configuration
-if(process.env.NODE_ENV == "production"){
-    mongoose.connect("mongodb://heroku_681lrpp2:hvl5e88u3o19dfo9u70mmq8gve@ds151433.mlab.com:51433/heroku_681lrpp2")
+// if(process.env.NODE_ENV == "production"){
+//     mongoose.connect("mongodb://heroku_681lrpp2:hvl5e88u3o19dfo9u70mmq8gve@ds151433.mlab.com:51433/heroku_681lrpp2")
+// } else{
+if (process.env.MONGODB_URI) {
+   mongoose.connect(process.env.MONGODB_URI) 
 } else{
 mongoose.connect("mongodb://localhost/nytreact");
 }
