@@ -23,21 +23,10 @@ app.use(express.static("./public"));
 // -------------------------------------------------
 
 // MongoDB Configuration configuration
-// if(process.env.NODE_ENV == "production"){
-//     mongoose.connect("mongodb://heroku_681lrpp2:hvl5e88u3o19dfo9u70mmq8gve@ds151433.mlab.com:51433/heroku_681lrpp2")
-// } else{
-// mongoose.connect("mongodb://localhost/nytreact");
-// }
-var databaseUri = "mongodb://localhost/nytreact"
-if (process.env.MONGODB_URI) {
-  mongoose.connect(process.env.MONGODB_URI, {
-    useMongoClient: true
-  });
-}
-else {
-  mongoose.connect(databaseUri, {
-    useMongoClient: true
-  });
+if(process.env.NODE_ENV == "production"){
+    mongoose.connect("mongodb://heroku_681lrpp2:hvl5e88u3o19dfo9u70mmq8gve@ds151433.mlab.com:51433/heroku_681lrpp2")
+} else{
+mongoose.connect("mongodb://localhost/nytreact");
 }
 
 var db = mongoose.connection;
