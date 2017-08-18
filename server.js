@@ -12,22 +12,25 @@ var app = express();
 var PORT = process.env.PORT || 3000; 
 
 // Run Morgan for Logging
+// app.use(logger("dev"));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended: true}));
+// app.use(bodyParser.text());
+// app.use(bodyParser.json({type:"application/vnd.api+json"}));
+//init express
+var app = express();
 app.use(logger("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.text());
-app.use(bodyParser.json({type:"application/vnd.api+json"}));
+app.use(bodyParser.urlencoded({
+    extended:false
+}))
 
 app.use(express.static("./public"));
 
 // -------------------------------------------------
 
 // MongoDB Configuration configuration
-// if(process.env.NODE_ENV == "production"){
-//     mongoose.connect("mongodb://heroku_681lrpp2:hvl5e88u3o19dfo9u70mmq8gve@ds151433.mlab.com:51433/heroku_681lrpp2")
-// } else{
-if (process.env.MONGODB_URI) {
-   mongoose.connect(process.env.MONGODB_URI) 
+if(process.env.NODE_ENV == "production"){
+    mongoose.connect("mongodb://heroku_681lrpp2:hvl5e88u3o19dfo9u70mmq8gve@ds151433.mlab.com:51433/heroku_681lrpp2")
 } else{
 mongoose.connect("mongodb://localhost/nytreact");
 }
