@@ -1,13 +1,13 @@
 // Include React 
-var React = require('react');
+var React = require("react");
 
 // Here we include all of the sub-components
-var Saved = require('./Children/Saved');
-var Results = require('./Children/Results');
-var Search = require('./Children/Search');
+var Saved = require("./Children/Saved");
+var Results = require("./Children/Results");
+var Search = require("./Children/Search");
 
 // Helper Function
-var helpers = require('./utils/helpers.js');
+var helpers = require("./utils/helpers.js");
 
 // This is the main component. 
 var Main = React.createClass({

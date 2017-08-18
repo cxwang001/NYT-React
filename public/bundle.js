@@ -44,17 +44,27 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
-	// Include the Main React Dependencies
-	var React = __webpack_require__(1);
-	var ReactDOM = __webpack_require__(37);
+	var _react = __webpack_require__(1);
 
-	// Include the Main Component
-	var Main = __webpack_require__(184);
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(37);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _Main = __webpack_require__(184);
+
+	var _Main2 = _interopRequireDefault(_Main);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// This code here allows us to render our main component (in this case "Main")
-	ReactDOM.render(React.createElement(Main, null), document.getElementById('app'));
+	_reactDom2.default.render(_react2.default.createElement(_Main2.default, null), document.getElementById("app"));
+
+	// Include the Main Component
+	// Include the Main React Dependencies
 
 /***/ }),
 /* 1 */
@@ -22184,7 +22194,7 @@
 /* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	// Include React 
 	var React = __webpack_require__(1);
@@ -22199,7 +22209,7 @@
 
 	// This is the main component. 
 	var Main = React.createClass({
-		displayName: 'Main',
+		displayName: "Main",
 
 
 		// Here we set a generic state associated with the number of clicks
@@ -22266,39 +22276,39 @@
 		render: function render() {
 
 			return React.createElement(
-				'div',
-				{ className: 'container' },
+				"div",
+				{ className: "container" },
 				React.createElement(
-					'div',
-					{ className: 'row' },
+					"div",
+					{ className: "row" },
 					React.createElement(
-						'div',
-						{ className: 'jumbotron' },
+						"div",
+						{ className: "jumbotron" },
 						React.createElement(
-							'h2',
-							{ className: 'text-center' },
-							'(ReactJS) New York Times Article Scrubber'
+							"h2",
+							{ className: "text-center" },
+							"(ReactJS) New York Times Article Scrubber"
 						),
 						React.createElement(
-							'p',
-							{ className: 'text-center' },
-							'Search for and save articles of interest'
+							"p",
+							{ className: "text-center" },
+							"Search for and save articles of interest"
 						)
 					),
 					React.createElement(
-						'div',
-						{ className: 'col-md-6' },
+						"div",
+						{ className: "col-md-6" },
 						React.createElement(Search, { setTerm: this.setTerm, setStartYear: this.setStartYear, setEndYear: this.setEndYear })
 					),
 					React.createElement(
-						'div',
-						{ className: 'col-md-6' },
+						"div",
+						{ className: "col-md-6" },
 						React.createElement(Results, { results: this.state.results })
 					)
 				),
 				React.createElement(
-					'div',
-					{ className: 'row' },
+					"div",
+					{ className: "row" },
 					React.createElement(Saved, { history: this.state.history })
 				)
 			);
@@ -22371,7 +22381,7 @@
 /* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	// Include React 
 	var React = __webpack_require__(1);
@@ -22380,7 +22390,7 @@
 
 	// This is the results component
 	var Results = React.createClass({
-		displayName: 'Results',
+		displayName: "Results",
 		handleSaveClick: function handleSaveClick(titleToSave, dateToSave, urlToSave) {
 			helpers.postHistory(titleToSave, dateToSave, urlToSave);
 		},
@@ -22390,40 +22400,40 @@
 			var _this = this;
 
 			return React.createElement(
-				'div',
-				{ className: 'panel panel-default' },
+				"div",
+				{ className: "panel panel-default" },
 				React.createElement(
-					'div',
-					{ className: 'panel-heading' },
+					"div",
+					{ className: "panel-heading" },
 					React.createElement(
-						'h3',
-						{ className: 'panel-title text-center' },
-						'Top Articles'
+						"h3",
+						{ className: "panel-title text-center" },
+						"Top Articles"
 					)
 				),
 				React.createElement(
-					'div',
-					{ className: 'panel-body text-center' },
+					"div",
+					{ className: "panel-body text-center" },
 					this.props.results.map(function (search, i) {
 						return React.createElement(
-							'form',
+							"form",
 							{ key: i, onSubmit: _this.handleSaveClick.bind(null, search.title, search.date, search.url) },
 							search.title,
-							' ',
-							React.createElement('br', null),
+							" ",
+							React.createElement("br", null),
 							search.date,
-							' ',
-							React.createElement('br', null),
+							" ",
+							React.createElement("br", null),
 							search.url,
-							' ',
-							React.createElement('br', null),
+							" ",
+							React.createElement("br", null),
 							React.createElement(
-								'button',
-								{ type: 'submit' },
-								'Save'
+								"button",
+								{ type: "submit" },
+								"Save"
 							),
-							React.createElement('br', null),
-							React.createElement('br', null)
+							React.createElement("br", null),
+							React.createElement("br", null)
 						);
 					})
 				)
@@ -22474,7 +22484,7 @@
 		// This function hits our own server to retrieve the record of query results
 		getHistory: function getHistory() {
 
-			return axios.get('/api/saved').then(function (response) {
+			return axios.get("/api/saved").then(function (response) {
 
 				console.log("/api/saved response:");
 				console.log(response);
@@ -22485,7 +22495,7 @@
 		// This function posts new searches to our database.
 		postHistory: function postHistory(title, date, url) {
 
-			return axios.post('/api/saved', { title: title, date: date, url: url }).then(function (results) {
+			return axios.post("/api/saved", { title: title, date: date, url: url }).then(function (results) {
 
 				console.log("Posted to MongoDB");
 				return results;

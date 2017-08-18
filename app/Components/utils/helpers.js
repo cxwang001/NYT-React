@@ -1,5 +1,5 @@
 
-var axios = require('axios');
+var axios = require("axios");
 
 var authKey = "4b6fc51a0f5043d1bc0c4dfeb85c76cf";
 
@@ -35,7 +35,7 @@ var helpers = {
 	// This function hits our own server to retrieve the record of query results
 	getHistory: function(){
 
-		return axios.get('/api/saved')
+		return axios.get("/api/saved")
 			.then(function(response){
 
 				console.log("/api/saved response:");
@@ -47,7 +47,7 @@ var helpers = {
 	// This function posts new searches to our database.
 	postHistory: function(title, date, url){
 
-		return axios.post('/api/saved', {title: title, date: date, url: url})
+		return axios.post("/api/saved", {title: title, date: date, url: url})
 			.then(function(results){
 
 				console.log("Posted to MongoDB");
